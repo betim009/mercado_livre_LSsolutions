@@ -1,0 +1,10 @@
+.container-ctg {
+background-color: #ededed;
+}
+
+.div-catg {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    border-bottom: 1px solid white;
+}
