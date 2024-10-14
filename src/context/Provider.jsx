@@ -5,6 +5,7 @@ import { getAllCategories } from "../helpers/fetchApi";
 
 export default function Provider({ children }) {
   const [data, setData] = useState(null);
+  const [dataCategorieIds, setDataCategorieIds] = useState(null);
 
   useEffect(() => {
     const LScategories = localStorage.getItem("lsCategories");
@@ -15,7 +16,7 @@ export default function Provider({ children }) {
         setData(response);
         localStorage.setItem("lsCategories", JSON.stringify(response));
       } else {
-        setData(JSON.parse(localStorage.getItem("lsCategories")));
+        setData(JSON.parse(LScategories));
       }
     };
 
@@ -25,6 +26,8 @@ export default function Provider({ children }) {
   const contextValue = {
     data,
     setData,
+    dataCategorieIds,
+    setDataCategorieIds,
   };
 
   return <Context.Provider value={contextValue}>{children}</Context.Provider>;
